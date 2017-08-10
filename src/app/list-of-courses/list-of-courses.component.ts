@@ -28,11 +28,11 @@ export class ListOfCoursesComponent implements OnInit {
 
   private toggleOrder(attr: string) {
     const p = this.params;
-    if (p.order[attr] && p.order[attr] === 'ASC') {
-      p.order[attr] = 'DESC';
+    if (p.order[attr]) {
+      p.order[attr] = p.order[attr] === 'ASC' ? 'DESC' : 'ASC';
     } else {
       p.order = {};
-      p.order[attr] = 'ASC';
+      p.order[attr] = 'DESC';
     }
     this.getCourses();
   }

@@ -1,0 +1,45 @@
+<h3>List of Courses</h3>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          <a (click)="toggleOrder('id')">#<i class="fa fa-fw fa-sort"></i></a>
+        </th>
+        <th>
+          <a (click)="toggleOrder('title')">Title<i class="fa fa-fw fa-sort"></i></a>
+        </th>
+        <th>
+          Professor
+        </th>
+        <th>
+          <a (click)="toggleOrder('startsOn')">Date<i class="fa fa-fw fa-sort"></i></a>
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let course of courses">
+      <tr>
+        <td>{{ course.id }}</td>
+        <td>
+          <a routerLink="/course-details/{{ course.id }}">{{ course.title }}</a>
+        </td>
+        <td>{{ course.professor.name }}</td>
+        <td>{{ course.starts_on | date }}</td>
+        <td>
+          <button 
+            class="btn btn-sm btn-primary" 
+            (click)="enroll(course.id)">Enroll</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ul class="pagination">
+  <li><a href="#">1</a></li>
+  <li class="active"><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+</ul>

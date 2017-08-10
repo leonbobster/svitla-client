@@ -1,0 +1,48 @@
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <img 
+        class="media-object avatar" 
+        [src]="user?.avatar || ''" 
+        alt="">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">{{ user?.first_name }} {{ user?.last_name }}</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  </div>
+</div>
+
+<div 
+  class="table-responsive" 
+  *ngIf="user?.courses.length else goListOfCourses">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Professor</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let course of user?.courses">
+      <tr>
+        <td>{{ course.id }}</td>
+        <td>
+          <a routerLink="/course-details/{{ course.id }}">{{ course.title }}</a>
+        </td>
+        <td>{{ course.professor.name }}</td>
+        <td>{{ course.starts_on | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #goListOfCourses>
+  <button
+    id="browse-classes"
+    routerLink="/list-of-courses"
+    class="btn btn-primary">Browse classes</button>
+</ng-template>

@@ -25,7 +25,10 @@ export class DataService {
 
   create(resourse) { }
 
-  update(resourse) { }
+  update(resourse) {
+    return this.http.put(this.url + '/' + resourse.id, JSON.stringify(resourse))
+      .map(response => response.json());
+  }
 
   delete(id) { }
 

@@ -7,7 +7,10 @@ export function querySerialize(obj: object, key?: string): string {
                 p = encodeURIComponent(p);
                 str.push((key ? `${key}[${p}]` : p) + '=' + v);
             } else {
-                str = str.concat(querySerialize(obj[p], p));
+                const nested = querySerialize(obj[p], p);
+                if (nested) {
+                    str = str.concat(nested);
+                }
             }
         }
     }

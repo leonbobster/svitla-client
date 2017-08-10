@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -13,7 +14,7 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
 import { ListOfCoursesComponent } from './list-of-courses/list-of-courses.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/profile', pathMatch: 'full'},
+  { path: '', redirectTo: '/profile', pathMatch: 'full' },
   { path: 'profile', component: ProfileComponent },
   { path: 'list-of-courses', component: ListOfCoursesComponent },
   { path: 'course-details/:id', component: CourseDetailsComponent },
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    HttpModule
+    HttpModule,
+    NgxPaginationModule
   ],
   providers: [
     CourseService,

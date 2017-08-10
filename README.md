@@ -3,6 +3,11 @@ Trial task for Svitla
 
 See components, services etc: https://github.com/leonbobster/svitla-client/tree/master/src/app
 
+## Installation
+cd svitla-client
+
+npm install
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
 
 ## Development server

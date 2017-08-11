@@ -2,6 +2,7 @@ import { UserService } from './../service/user.service';
 import { CourseService } from './../service/course.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 
@@ -17,7 +18,11 @@ export class ListOfCoursesComponent implements OnInit {
   totalItems;
   itemsPerPage = 10;
 
-  constructor(private courseService: CourseService, private userService: UserService) {
+  constructor(
+    private courseService: CourseService,
+    private userService: UserService,
+    private router: Router
+  ) {
     this.params = { order: { 'course.id': 'ASC' } };
   }
 
@@ -52,7 +57,10 @@ export class ListOfCoursesComponent implements OnInit {
   private enroll(courseId) {
     const userId = 1; /* should be retrieved from authorization service */
     this.userService.enroll(userId, courseId)
-      .subscribe(user => alert('You have been enrolled to the course!'));
+      .subscribe(user => {
+        alert('You have been enrolled to the course!');
+        this.router.navigate(['/profile'])
+      });
   }
 
 }

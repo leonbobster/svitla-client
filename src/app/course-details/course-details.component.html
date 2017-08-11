@@ -1,13 +1,6 @@
+<h3>{{ course?.title }}</h3>
 <div class="table-responsive">
   <table class="table">
-    <tr>
-      <td>Id</td>
-      <td>{{ course?.id }}</td>
-    </tr>
-    <tr>
-      <td>Title</td>
-      <td>{{ course?.title }}</td>
-    </tr>
     <tr>
       <td>Professor</td>
       <td>{{ course?.professor.name }}</td>
@@ -15,6 +8,10 @@
     <tr>
       <td>Starts on</td>
       <td>{{ course?.starts_on | date }}</td>
+    </tr>
+    <tr>
+      <td>Cost</td>
+      <td>{{ course?.cost | currency:'USD':true }}</td>
     </tr>
     <tr>
       <td>Description</td>

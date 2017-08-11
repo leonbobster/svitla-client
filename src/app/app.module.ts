@@ -1,3 +1,5 @@
+import { AppErrorHandler } from './common/app-error-handler';
+import { ErrorHandler } from '@angular/core';
 import { UserService } from './service/user.service';
 import { CourseService } from './service/course.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -38,7 +40,11 @@ const appRoutes: Routes = [
   ],
   providers: [
     CourseService,
-    UserService
+    UserService,
+    {
+      provide: ErrorHandler,
+      useClass: AppErrorHandler
+    }
   ],
   bootstrap: [AppComponent]
 })

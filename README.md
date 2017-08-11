@@ -1,7 +1,15 @@
 # Client
 Trial task for Svitla
 
-See components, services etc: https://github.com/leonbobster/svitla-client/tree/master/src/app
+Services:
+
+https://github.com/leonbobster/svitla-client/tree/master/src/app/service
+
+Unit Test:
+
+https://github.com/leonbobster/svitla-client/blob/master/src/app/util/query-serialize.spec.ts
+
+Navigate http://localhost:4200/omg to get 404 page
 
 ## Installation
 cd svitla-client

@@ -16,10 +16,9 @@ export class ListOfCoursesComponent implements OnInit {
   currentPage = 1;
   totalItems;
   itemsPerPage = 10;
-  userId = 1; /* should be retrieved from authorization service */
 
   constructor(private courseService: CourseService, private userService: UserService) {
-    this.params = { order: { id: 'ASC' } };
+    this.params = { order: { 'course.id': 'ASC' } };
   }
 
   ngOnInit() {
@@ -50,12 +49,9 @@ export class ListOfCoursesComponent implements OnInit {
       .map(response => response.items);
   }
 
-  private enroll(id) {
-    const resourse = {
-      id: this.userId,
-      courses: [{ id: id }]
-    };
-    this.userService.update(resourse)
+  private enroll(courseId) {
+    const userId = 1; /* should be retrieved from authorization service */
+    this.userService.enroll(userId, courseId)
       .subscribe(user => alert('You have been enrolled to the course!'));
   }
 

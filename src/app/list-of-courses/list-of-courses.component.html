@@ -4,19 +4,19 @@
     <thead>
       <tr>
         <th>
-          <a (click)="toggleOrder('id')">#<i class="fa fa-fw fa-sort"></i></a>
+          <a (click)="toggleOrder('course.id')">#<i class="fa fa-fw fa-sort"></i></a>
         </th>
         <th>
-          <a (click)="toggleOrder('title')">Title<i class="fa fa-fw fa-sort"></i></a>
+          <a (click)="toggleOrder('course.title')">Title<i class="fa fa-fw fa-sort"></i></a>
         </th>
         <th>
-          Professor
+          <a (click)="toggleOrder('professor.name')">Professor<i class="fa fa-fw fa-sort"></i></a>
         </th>
         <th>
-          Cost
+          <a (click)="toggleOrder('course.cost')">Cost<i class="fa fa-fw fa-sort"></i></a>
         </th>
         <th>
-          <a (click)="toggleOrder('startsOn')">Date<i class="fa fa-fw fa-sort"></i></a>
+          <a (click)="toggleOrder('course.startsOn')">Date<i class="fa fa-fw fa-sort"></i></a>
         </th>
         <th></th>
       </tr>

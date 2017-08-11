@@ -10,4 +10,10 @@ export class UserService extends DataService {
     this.url = 'http://localhost:8095/user';
   }
 
+  enroll(userId: number, courseId: number) {
+    return this.http.put(`${this.url}/${userId}/enroll/${courseId}`, {})
+      .map(response => response.json())
+      .catch(this.handleError);
+  }
+
 }
